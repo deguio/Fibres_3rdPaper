@@ -55,10 +55,13 @@ We described our results from five prototype Ce-doped fibers in two previous pub
 
 \section{Experimental Setup}
 \label{sec:experimentalsetup}
-The test has been performed in the H4 beam line of the CERN SPS North Area. The high-energy electrons there are tracked by a spectrometer for obtaining a precise impact point: a wire-chamber (placed at 12 m from the tested setup), two scintillating-fibre hodoscopes (placed at 6 and 3 m distance). The wire chamber provides a measurement of the electron position in the x and y directions with a nominal resolution of about 200 $\mu$m~\cite{r-SPA}.
+
+%hodoscope: 250um precision on a 3x3 cms
+
+The test has been performed in the H4 beam line of the CERN SPS North Area which provides high-purity electron beams with energy between 20 and 250~GeV. The electrons are tracked by a spectrometer for obtaining a precise impact point: two scintillating-fibre hodoscopes (placed at 6 and 3 m distance) provide a transverse position precision of 250~$\mu$m~\cite{r-SPA}.
 Four plastic scintillators of varying size, the smallest of which has a transverse dimension of $1 \times 1$ cm$^2$, are placed in the beamline for triggering purposes.
 
-Test beam data have been acquired with a custom DAQ system~\cite{r-MAR}. The core system has been built around the ZeroMQ library, which provide a low latency communication over ordinary networks allowing to operate several instances of the DAQ on different machines. A typical configuration used included a master application interfaced to the SPS communication system and a slave instance, running on a PC close to the setup, which read out the data from the detectors. Although the DAQ system is built with a general API we extensively used the CAEN V1742 VME board. The V1742 includes 4 DRS4 chips that allow one to sample the detector signal at frequency up to 5 GHz. The choice of this flexible configuration enabled us to optimize the signal reconstruction offline.
+Test beam data have been acquired with a custom DAQ system~\cite{r-MAR} which utilizes a CAEN V1742 VME board. The V1742 includes 4 DRS4 chips that allow to sample the detector signal at frequency up to 5 GHz. The choice of this flexible configuration enabled us to optimize the signal reconstruction offline.
 
 The detailed information on the fibers used in the tests can be found in~\cite{JINSTPaper}.  Table~\ref{tab:fiberlist} summarizes the physical dimensions while Figure~\ref{fig:FiberCrossSections} shows fiber cross-sectional images.  Some performance characteristics of Phase-I and -II fibers that were measured with the high energy beams at Fermilab were reported in our first paper \cite{JINSTPaper}.  For example, the Phase-I optical attenuation length measured about $5.8\pm0.7$ m using 25~GeV  electrons.  The speed of light propagation was $19.50\pm0.38$ cm/ns and was found to be consistent with the previously reported values \cite{Goro,Akch97}.  When the tail of the pulse was modeled by a sum of two exponential functions, two decay constants were obtained, $\tau_1= 20.8\pm5.4$, and $\tau_2= 93.0\pm12.6$ ns.  The contributions of these components to the total light emission (radio-luminescence) turned out to be $23.9\pm5.3$\% and $76.1\pm5.3$\%, respectively.  In our second paper \cite{JINSTPaper2}, we focused on the fiber chemical compositions and their impact on their radiation-hardness properties.  We also showed that the radiation induced attenuation and recovery can be successfully modeled by a set of self-consistent kinematic rate equations.
 
@@ -125,7 +128,7 @@ We also measured the timing characteristics of the scintillation component of th
       \includegraphics[width=4.8cm]{Figures/B4_R11863_fit_zoom_singleLog.pdf}
       \includegraphics[width=4.8cm]{Figures/B1_R11862_fit_zoom_singleLog.pdf}
        %%\vspace{-1pc}
-\caption{\small The average signal from Phase-IV un-irradiated (top, left), irradiated (top, right) and Phase-II (bottom) fibers. The tail of the scintillation signal is well described by a single exponential (red line) with a time constant of $119.3 \pm 20.7$ ns and $102.3 \pm 10.3$ ns for Phase-IV un-irradiated and irradiated fibers respectively. The tail of the Phase-II scintillation signal is better described by sum of two exponents with time constants of $101.4 \pm 16.4$ ns and $31.1  \pm 7.8$ ns and relative contributions of $66 \pm 16 \%$ and $34 \pm 16 \%$.}
+\caption{\small The average signal from Phase-IV un-irradiated (left), irradiated (middle) and Phase-II (right) fibers. The tail of the scintillation signal is well described by a single exponential (red line) with a time constant of $119.3 \pm 20.7$ ns and $102.3 \pm 10.3$ ns for Phase-IV un-irradiated and irradiated fibers respectively. The tail of the Phase-II scintillation signal is better described by sum of two exponents with time constants of $101.4 \pm 16.4$ ns and $31.1  \pm 7.8$ ns and relative contributions of $66 \pm 16 \%$ and $34 \pm 16 \%$.}
     \label{fig:phase4scintTime}
 \end{center}
 \end{figure}
@@ -153,13 +156,13 @@ We also measured the timing characteristics of the scintillation component of th
 Cerium fluoride is an intrinsic scintillator with density $\rho=6.16\; {\mathrm{g/cm}}^3$, radiation length $X_{\rm o} = 1.68$ cm, Moli\`ere radius $R_{\rm M} = 2.6$ cm, nuclear interaction length $\lambda_{\rm I} = 25.9$ cm and refractive index $n = 1.68$, whose luminescence has been discovered by F.A. Kr\"oger and J.~Bakker~\cite{r-KRO} in 1941. In the 1990's, it was extensively studied by D.~F.~Anderson~\cite{r-AND}, W.~W.~Moses and S.~E.~Derenzo~\cite{r-MOS} as a bright and relatively fast scintillator, with decay time constants of 10 - 30~ns. 
 %It was adopted as baseline material for the CMS~\cite{r-LOI} and L3P~\cite{r-L3P} electromagnetic calorimeters in their Letters of Intent 
 %and thus was extensively studied in high-energy beams~\cite{r-CEFTB}.  For electromagnetic calorimetry in the CMS detector \cite{Nessi2014} after the High-Luminosity upgrade of the Large Hadron Collider at CERN (HL-LHC),
-Cerium fluoride was considered for electromagnetic calorimetry for the Compact Muon Solenoid (CMS) experiment at the high-luminosity Large Hadron Collider (LHC), because it recovers from radiation damage~\cite{r-NIMCEF3}, while other crystals, like lead tungstate and LYSO, experience a cumulative damage due to hadrons~\cite{r-FISSNIM, r-NIMLYSO}. A sampling calorimeter design was proposed, alternating tungsten as absorber and cerium fluoride as scintillating medium, with a readout through wavelength-shifting cerium-doped quartz fibers along the chamfers of each calorimeter cell~\cite{r-CALORCEF3, r-WCEF3FRA, r-WCEF3H4}. The choice was made possible by the fact that cerium fluoride broadly emits between 300 nm and 400 nm (Fig.~\ref{fig:cef3spectrum}), with spectrum shape variations depending on the presence of dopants~\cite{r-EACEF3}, conveniently right in the domain of wavelengths that excite the photoluminescent emission of cerium-doped fused-silica~\cite{r-TTU,r-vedda}.
+Cerium fluoride was considered for electromagnetic calorimetry for the Compact Muon Solenoid (CMS) experiment at the high-luminosity Large Hadron Collider (LHC), because it recovers from radiation damage~\cite{r-NIMCEF3}, while other crystals, like lead tungstate and LYSO, experience a cumulative damage due to hadrons~\cite{r-FISSNIM, r-NIMLYSO}. A sampling calorimeter design was proposed, alternating tungsten as absorber and cerium fluoride as scintillating medium, with a readout through wavelength-shifting cerium-doped quartz fibers along the chamfers of each calorimeter cell~\cite{r-CALORCEF3, r-WCEF3FRA, r-WCEF3H4}. The choice was made possible by the fact that cerium fluoride broadly emits between 300 nm and 400 nm (Fig.~\ref{fig:cef3spectrum}), with spectrum shape variations depending on the presence of dopants~\cite{r-EACEF3}, conveniently right in the domain of wavelengths that excite the photoluminescent emission of cerium-doped fused-silica~\cite{r-vedda}.
 
 \begin{figure}[ht]
 \begin{center}
       \includegraphics[width=10cm]{Figures/SpectrumCeF3.pdf}
        %%\vspace{-1pc}
-\caption{\small Photo-luminescence spectrum for the Barium doped CeF$_3$ crystal.}
+\caption{\small Photo-luminescence spectrum for a Barium doped CeF$_3$ crystal~\cite{r-EACEF3}.}
     \label{fig:cef3spectrum}
 \end{center}
 \end{figure}
@@ -172,9 +175,9 @@ For the test presented herein, a small block of cerium fluoride crystal was used
     \label{fig:CeF3Arrangement}
 \end{center}
 \end{figure}
-Two sets of six fibers were air-coupled to the larger one of the crystal surfaces without optical grease and held in place by a tightly wrapped Tyvek sheet as shown in Figure~\ref{fig:CeF3Arrangement}. One set of six consisted of un-irradiated and the other one consisted of irradiated Phase-IV fibers that were viewed independently by PMTs.  Irradiated fibers had been exposed to 10 MRad of gamma irradiation three months prior to these measurements and some optical recovery had occurred.  For cross calibration purposes between the two channels, the PMTs and the orientation of fibers on the crystal surfaces with respect to the beam direction were swapped in all possible (4) combinations and signals were equalized offline.
+Two sets of six fibers were air-coupled to the larger one of the crystal surfaces without optical grease and held in place by a tightly wrapped Tyvek sheet as shown in Figure~\ref{fig:CeF3Arrangement}. One set of six consisted of un-irradiated and the other one consisted of irradiated Phase-IV fibers that were viewed independently by PMTs. The equalization of the signals from the two channels is performed offline and consists of calibrating the gain of the two PMTs by equalizing the position of the single photo-electron peak. In addition to the PMT gain calibration, other sources of uncertainty include a not perfect coupling of the fibres to the PMT window and possibly a different amount of light seen by the fibres bundles when placed upstream or downstream the crystal with respect to the beam direction. For cross comparison purposes between the two channels, the PMTs and the orientation of fibers on the crystal surfaces with respect to the beam were swapped in all possible (4) combinations.
 
-In Figure~\ref{fig:CeF3shapeComparison} the average calibrated spectra for irradiated and un-irradiated fibres are compared. While the tails of the signal is essentially the same, a clear difference in shape is visible in the time range between 0 and 50~ns. This is an indication that the irradiated fibers have lost sensitivity to this temporal region of light emission from the crystal.
+In Figure~\ref{fig:CeF3shapeComparison} the average calibrated spectra for irradiated and un-irradiated fibres are compared. While the tails of the signal is essentially the same, a clear difference in shape is visible in the time range between 0 and 50~ns. This is an indication that the irradiated fibers have lost sensitivity to this temporal region of light emission from the crystal. This observation is confirmed by the analysis of the data from all the four configurations mentioned above.
 \begin{figure}[ht]
 \begin{center}
         \includegraphics[width=9cm]{Figures/CeF3coupledFibresShapeComparison.pdf}
@@ -197,34 +200,40 @@ The light PMT detects in this configuration has two components - photo-luminesce
 \label{sec:timing}
 In addition to the light yield studies presented in the previous section, an attempt to characterize the timing performance of the cerium-doped fibers was carried out. The fibers show a fast Cherenkov component, well separated from the scintillation one. In the context of calorimetry at the hadron colliders, studies indicate that precise timing information (tens of ps) is beneficial for pile-up mitigation and for the correct assignment of physics objects to their primary vertices. It becomes then worthwhile to exploit the Cherenkov signal for timing applications.  The relative abundance of the light generated via Cherenkov processes and then collected, strongly depends on the orientation of the fibers with respect to the direction of development of the showers. In the setup considered, the fibers are positioned at 90 degrees with respect to the beam direction and only the Cherenkov photons emitted within the numerical aperture of the fiber are guided to the photosensor via total internal reflection.
 
-In order to measure the time resolution of the fibers, two MCP photosensors were placed directly on the beam axis and used as a time reference. For each pulse shape the timing is defined as the position of the time sample corresponding to half of the pulse's maximum amplitude mimicking a constant fraction discriminator (CFD) at 50\%. The timing performance was then measured by fitting the distribution of $(t_{\rm MCP} - t_{\rm fiber})$ in bins of charge with a gaussian function.  The time resolution can be expressed as the sum in quadrature of two terms accounting for different sources of uncertainty and can be parametrized as follows:
+In order to measure the time resolution, the MCP photosensor are used as a time reference. For each pulse, the timing is defined by the position of the time sample corresponding to the half of the pulse's maximum amplitude, mimicking a constant fraction discriminator (CFD) at 50\%. The timing performance was then measured by fitting the distribution of $(t_{\rm MCP} - t_{\rm fiber})$ in bins of charge with a gaussian function.  The time resolution can be expressed as the sum in quadrature of two terms accounting for different sources of uncertainty and can be parametrized as follows:
 \begin{equation}
-    \sigma^2(t) = \bigg( \frac{S}{\sqrt{A}} \bigg)^2 + C^2
+    \sigma^2(t) = \bigg( \frac{s}{\sqrt{A}} \bigg)^2 + c^2
 \end{equation}
-where $A$ is the measured amplitude while $S$ and $C$ are the stochastic and constant term coefficients, respectively. For MCPs, the measured constant term was 17~ps, consistent with the expected performance form the MCP specs.
+where $A$ is the measured amplitude while $s$ and $c$ are the stochastic and constant term coefficients, respectively. For the MCPs, the measured constant term was 17~ps, compatible with the performance measured for the same photo-detectors in~\cite{r-MCP}.
 
 Following the same approach, the time resolution for the fibers (Phase-IV irradiated, Phase-IV un-irradiated and clear fused-silica fiber) was measured and compared to the performance of a plastic scintillating fiber that doesn't exhibit a Cherenkov peak (Figure~\ref{fig:fibres_time_res}).
 
 \begin{figure}[ht]
-\begin{center}\vspace{-1pc}
+\begin{center}
       \includegraphics[width=12cm]{Figures/fibres_time_res}
        %%\vspace{-1pc}
-\caption{\small Time resolution curves for different types of fibers. The MCP photodetectors are used as time reference.  One ADC count equals XXX pC.}
+\caption{\small Time resolution curves for different types of fibers. The MCP photodetectors are used as time reference.  One ADC count equals 0.24~mV.}
     \label{fig:fibres_time_res}
 \end{center}
 \end{figure}
 The following observations were made:
 \begin{itemize}
-\item there is a clear advantage in using Cherenkov light for timing measurements compared to slower scintillation light. For the setup considered, where very few photoelectrons are generated per event, promptly produced photons guarantee a time resolution which is not degraded by the slower light re-emission from scintillation processes;
+\item there is a clear advantage in using Cherenkov light for timing measurements compared to slower scintillation light. For the setup considered, where very few photoelectrons are generated per event, promptly produced photons guarantee a time resolution which is not degraded by the slower light re-emission from scintillation processes. In this case the plastic fibre utilized has a characteristic decay time constant of XXXXX~ns;
 \item in the hypothesis of an infinite number of photoelectrons, the cerium-doped fused-silica fibers and the scintillation plastic fibers are expected to have the same timing performance if they are read out with the same photodetector. The measurements performed, however, do not allow a proper measurement of the constant term in some cases due to the low signal;
-\item irradiated vs un-irradiated Phase-IV fiber?  Does it scale like e$^-2$?  Is it just photostatistics?
-\item what is to be said about the plastic scintillating fiber?
-\item having a transit time spread of 500~ps (FWHM), the PMTs used in these studies are not well suited for timing measurements. The timing resolution measurement for the fibers in this case is limited by the PMT resolution.
+\item the worse timing performance of the Phase-IV fused-silica fibres with respect to the clear fibre is the direct consequence of the higher photo-statistics available in the latter. The number of Cherenkov photons produced by a particle traversing the bundle, is proportional to the path length of the particle in the fibre's material. As described in Sec.~\ref{sec:experimentalsetup} and Sec.~\ref{sec:lightyield}, in the quartz bundle there are ten times more fibres than in the Phase-IV bundles;
+\item despite the large error bars, a visible degradation of the timing performance is visible for the irradiated fibres compared to the un-irradiated ones. This observation is interpreted as a worsening of the light transmission due to the formation of new color centers in the fibres lattice. Systematics associated to a different coupling of the fibres with the PMT window can not be excluded;
+%\item irradiated vs un-irradiated Phase-IV fiber?  Does it scale like e$^-2$?  Is it just photostatistics?
+\item having a transit time spread of 500~ps (FWHM), the PMTs used in these studies are not well suited for timing measurements. The timing resolution measurement for the fibers in this case is dominated by the PMT resolution.
 \end{itemize}
 In conclusion, it becomes clear that to be able to project the observed time performance to a realistic case for applications in future calorimeters, a different setup and a different readout would be needed. Nevertheless, the observation of a clean Cherenkov component in the pulses are interesting and are to be investigated for high-precision timing measurements.
 
-\section{Conclusions}
+\section{Discussion and Conclusions}
 \label{sec:conclusions}
+
+\begin{itemize}
+    \item it looks like the radio-luminescence component went up by factor 4 for the irradiated fibres with respect to the un-irradiated
+    \item Irradiated fibers had been exposed to 10~MRad of gamma irradiation three months prior to these measurements and some optical recovery had occurred. Could over-recovery play a role here? what can be found in literature?
+\end{itemize}
 
 %%
 %%  Conclusion from the first JINST paper below:
